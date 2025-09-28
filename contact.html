@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Portfolio Antoine Moriceau</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">Antoine</div>
+    <nav class="nav">
+      <a href="index.html" class="">Accueil</a>
+      <a href="projets.html" class="">Projets</a>
+      <a href="veille.html" class="">Veille Info</a>
+      <a href="stages.html" class="">Stages</a>
+      <a href="contact.html" class="cta active">CONTACTEZ-MOI</a>
+    </nav>
+  </div>
+</header>
+
+  
+  <main>
+<section class="vignette section">
+    <div class="container" style="max-width:56rem;">
+      <div class="text-center" style="margin-bottom:1rem;">
+        <span class="title-box">CONTACT</span>
+      </div>
+      <p class="text-center text-muted" style="max-width:42rem; margin:0 auto;">
+        N’hésitez pas à me laisser un message (stages, missions, audit/veille…).
+        Je reviens vers vous rapidement.
+      </p>
+
+      <form class="section" onsubmit="event.preventDefault(); alert('Merci ! Votre message a été simulé côté client. Intégrez un service de formulaires pour l’envoi réel.');">
+        <div class="grid" style="gap:1rem;">
+          <input class="field" type="text" placeholder="VOTRE NOM" required />
+          <input class="field" type="email" placeholder="VOTRE ADRESSE EMAIL" required />
+          <input class="field" type="text" placeholder="OBJET" />
+          <textarea class="field" placeholder="VOTRE MESSAGE" style="min-height:140px;"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn-outline">ENVOYER</button>
+        </div>
+      </form>
+
+      <div class="text-center text-xs text-muted">BACK TO TOP</div>
+      <div class="text-center" style="margin-top:.5rem; font-size:1.25rem;">
+        <a href="https://github.com/Populiev33" target="_blank" rel="noopener" style="margin-right:.75rem;">🐙</a>
+        <a href="mailto:antwane.moriceau@gmail.com" style="margin-right:.75rem;">✉️</a>
+        <a href="https://www.linkedin.com/in/antoine-moriceau" target="_blank" rel="noopener">in</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container inner">© 2025 Antoine Moriceau — Portfolio</div>
+</footer>
+</body>
+</html>

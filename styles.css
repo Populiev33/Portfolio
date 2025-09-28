@@ -1,0 +1,215 @@
+/* === styles.css — Portfolio Antoine Moriceau (MAJ) === */
+
+/* ---------- Base & Reset ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; height: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #000;
+  background: #e4e4e7;
+  line-height: 1.5;
+}
+
+/* ---------- Fond vignette plein écran ---------- */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.35) 0%,
+    rgba(0,0,0,0.08) 55%,
+    rgba(0,0,0,0.12) 100%
+  );
+}
+
+/* Assurer que le contenu est au-dessus du fond */
+.site-header, main, .site-footer { position: relative; z-index: 1; }
+
+/* ---------- Header (hauteur fixe, nav sans wrap) ---------- */
+:root{
+  --header-h: 56px;
+  --footer-h: 64px;
+}
+
+.site-header {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+}
+
+.container { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.brand { font-weight: 700; letter-spacing: .02em; }
+.nav {
+  display: flex; align-items: center; gap: .5rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.nav a {
+  display:inline-block; padding: .25rem 1rem; border-radius: 9999px; text-decoration:none;
+  color:#fff; background: transparent; transition: background .2s, color .2s;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.nav a:hover { background: rgba(255,255,255,.12); }
+.nav a.cta { background:#fff; color:#000; }
+.nav a.cta:hover { background: rgba(255,255,255,.9); color:#000; }
+
+/* === Correction : lien actif sans "parenthèses" === */
+.nav a.active {
+  background: rgba(255,255,255,.25);  /* fond clair */
+  color: #fff;                        /* texte blanc */
+  font-weight: 600;                   /* léger accent */
+  outline: none;                      /* suppression de l’outline */
+}
+
+/* ---------- Blocs réutilisables ---------- */
+.title-box {
+  display:inline-block; padding:.5rem 1.25rem; border:1px solid #000; border-radius:.5rem;
+  letter-spacing:.06em; background: rgba(255,255,255,.6); backdrop-filter: blur(2px);
+}
+.btn-outline {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:.5rem 1.5rem; border:1px solid #000; border-radius:.5rem;
+  color:#000; background:rgba(255,255,255,.6); text-decoration:none;
+  transition: background .2s, color .2s, transform .06s, box-shadow .2s;
+  box-shadow: 0 2px 0 #000;
+}
+.btn-outline:hover { background:#000; color:#fff; box-shadow: 0 4px 0 #000; }
+.btn-outline:active { transform: translateY(1px); }
+
+.field {
+  width:100%;
+  background: rgba(255,255,255,.65);
+  border:1px solid #000;
+  border-radius:.5rem;
+  padding:.75rem 1rem;
+  outline:none;
+}
+.field::placeholder { color: rgba(0,0,0,.55); }
+.field:focus { box-shadow: 0 0 0 3px rgba(0,0,0,.75); }
+
+/* ---------- Utilitaires ---------- */
+.text-center { text-align:center; }
+.text-sm { font-size:.875rem; }
+.text-xs { font-size:.75rem; }
+.text-muted { color: rgba(0,0,0,.7); }
+.grid { display:grid; gap: 2.5rem; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.section { padding: 3.5rem 0; }
+.section-tight { padding: 2rem 0; }
+.mx-auto { margin-left:auto; margin-right:auto; }
+.rounded { border-radius:.5rem; }
+.border { border:1px solid #000; }
+.shadow-b { box-shadow: 0 8px 0 #000; }
+.inline-flex { display:inline-flex; align-items:center; gap:.5rem; }
+.badge {
+  display:inline-flex; align-items:center; justify-content:center;
+  height: 2rem; width: 2rem; border-radius: 9999px; border:1px solid #000;
+  background: rgba(255,255,255,.7);
+}
+
+/* ---------- Layout principal ---------- */
+main{
+  flex: 1 0 auto;
+}
+
+/* ---------- Footer (hauteur fixe) ---------- */
+.site-footer { background:#000; color:#fff; margin-top:auto; }
+.site-footer .inner {
+  text-align:center; font-size:.8rem;
+  height: var(--footer-h);
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* ---------- Responsive / grille héros ---------- */
+@media (min-width: 768px) {
+  .hero-grid {
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .md-grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .md-w-360 { width: 360px; }
+  .md-w-260 { width: 260px; }
+}
+@media (max-width: 767px) {
+  .stack-sm { display:flex; flex-direction:column; gap: 1rem; }
+  .nav { gap: .25rem; }
+  .nav a { padding: .25rem .75rem; }
+}
+
+/* ---------- Accessibilité : focus visibles ---------- */
+:focus-visible {
+  outline: 3px solid #1e40af;
+  outline-offset: 2px;
+}
+
+/* ---------- Scrollbar stable ---------- */
+html{ scrollbar-gutter: stable both-edges; overflow-y: scroll; }
+
+/* ---------- Sections : hauteur uniforme par page ---------- */
+.vignette.section{
+  min-height: calc(100dvh - var(--header-h) - var(--footer-h));
+  display: flex;
+  align-items: flex-start;
+  padding: 2.5rem 0;
+}
+@supports not (height: 100dvh){
+  .vignette.section{
+    min-height: calc(100vh - var(--header-h) - var(--footer-h));
+  }
+}
+.vignette.section > .container{ width: 100%; }
+.vignette.section > .container > :first-child{ margin-top: 0; }
+
+/* ---------- Option : wrapper de titre ---------- */
+.title-wrap{
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+/* ---------- Image ---------- */
+img{ image-rendering:auto; }
+
+/* --- Ajustements accueil (maquette Figma) --- */
+.hero-right{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.photo-hero{
+  width: 240px;
+  height: auto;
+  border: none;
+  box-shadow: none;
+  border-radius: .5rem;
+  transform: translateY(-12px);
+}
+.contacts{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  font-size: .95rem;
+}

@@ -1,25 +1,79 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Mon premier site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Accueil — Portfolio Antoine Moriceau</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-   <h1>Bienvenue sur mon site</h1>
-   <p>Ceci est mon premier paragraphe en HTML.</p>
-   <a href="https://github.com">Visitez mon GitHub</a>
-   <hr>
-   <h2>Mes compétences :</h2>
-   <ul>
-       <li>HTML</li>
-       <li>CSS</li>
-       <li>Python</li>
-   </ul>
-   <img src="IMG/cv.png" alt="Photo de profil">
-   <footer>
-       <p>© 2025 - Mon portfolio</p>
-   </footer>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">Antoine</div>
+      <nav class="nav">
+        <a href="index.html" class="active">Accueil</a>
+        <a href="projets.html">Projets</a>
+        <a href="veille.html">Veille Info</a>
+        <a href="stages.html">Stages</a>
+        <a href="contact.html" class="cta">CONTACTEZ-MOI</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="vignette section">
+      <div class="container">
+        <!-- Titre -->
+        <div class="title-wrap">
+          <span class="title-box">Accueil</span>
+        </div>
+
+        <!-- Grille héros -->
+        <div class="hero-grid">
+          <!-- Colonne gauche : intro + CV -->
+          <div>
+            <p class="text-sm">Bonjour, je suis</p>
+            <h1 style="font-size:clamp(2rem,3.5vw,2.75rem); line-height:1.15; font-weight:800; margin:.25rem 0 1rem 0;">
+              Antoine Moriceau
+            </h1>
+
+            <div class="md-w-360" style="width:320px;">
+              <img src="IMG/cv.png" alt="Aperçu du CV" class="rounded border shadow-b" style="width:100%; height:auto;" />
+            </div>
+          </div>
+
+          <!-- Colonne droite : photo + contacts -->
+          <div class="hero-right">
+            <img src="IMG/photo.png" alt="Photo d’Antoine" class="photo-hero" />
+            <ul class="contacts">
+              <li class="inline-flex">
+                <span class="badge">✉️</span>
+                <a href="mailto:antwane.moriceau@gmail.com">antwane.moriceau@gmail.com</a>
+              </li>
+              <li class="inline-flex">
+                <span class="badge">🐙</span>
+                <a href="https://github.com/Populiev33" target="_blank" rel="noopener">Populiev33</a>
+              </li>
+              <li class="inline-flex">
+                <span class="badge">🔗</span>
+                <a href="https://www.linkedin.com/in/antoine-moriceau" target="_blank" rel="noopener">Antoine Moriceau</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bouton centré sous le bloc -->
+        <div class="text-center" style="margin-top:1.25rem;">
+          <a href="IMG/cv.png" class="btn-outline" download="Antoine_Moriceau_CV.png">
+            <span>⬇</span> DOWNLOAD
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container inner">© 2025 Antoine Moriceau — Portfolio</div>
+  </footer>
 </body>
 </html>
-
-
